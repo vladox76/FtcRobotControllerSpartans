@@ -1,22 +1,23 @@
 package org.firstinspires.ftc.teamcode.templates;
 
-import android.app.DirectAction;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-/** HARDWARE TEMPLATE
+/**
+ * HARDWARE TEMPLATE
  * Usa este template para:
  * -Inicializar tus motores y servos
  * -Sentido de giro de los motores
  * -Modo de uso de los motores
- *
- * * */
+ * <p>
+ * *
+ */
 
-public class BasicHardwareTemplate {
+public class ConfiguracionHardwareTempl {
     /**
      * Declaracion de los motores/servo -- modificar
      */
@@ -42,49 +43,61 @@ public class BasicHardwareTemplate {
     private ElapsedTime period = new ElapsedTime();
 
     /* Constructor -- no modificar */
-    public BasicHardwareTemplate() {
+    public ConfiguracionHardwareTempl() {
 
     }
 
     /**
      * Inicializar hardware --modificar
      */
-    public void init(HardwareMap ahwMap) {
+    public void init(HardwareMap ahwMap, Telemetry telemetry) {
         // Save reference to Hardware map
         hwMap = ahwMap;
 
         // Definir e inicializar hardware
         /*En las comillas (deviceName) debe de ir el nombre que hayas puesto en la configuracion
         del robot*/
+
         enfrenteDer = hwMap.get(DcMotor.class, "enfrenteDer");
         enfrenteIzq = hwMap.get(DcMotor.class, "enfrenteIzq");
         atrasDer = hwMap.get(DcMotor.class, "atrasDer");
         atrasIzq = hwMap.get(DcMotor.class, "atrasIzq");
+        telemetry.addLine("Motores inicializados...");
+
 
         //Invertir giro de motores
         reversa(enfrenteIzq, atrasIzq);
         derecho(enfrenteDer, atrasDer);
+        telemetry.addLine("Cambio de giro de motores hecho...");
+        telemetry.update();
 
         //Motores al 0%
         enfrenteDer.setPower(0);
         enfrenteIzq.setPower(0);
         atrasDer.setPower(0);
         atrasIzq.setPower(0);
+        telemetry.addLine("Motores al 0%...");
+        telemetry.update();
 
         //Configurar modo
-        usarWithoutEncoder(enfrenteDer , enfrenteIzq , atrasDer , atrasIzq);
-
+        usarWithoutEncoder(enfrenteDer, enfrenteIzq, atrasDer, atrasIzq);
+        telemetry.addLine("Motores configurados...");
+        telemetry.update();
 
         //Inicializar servos y colocarlos a la posicion inicial (eso si se puede hacer en el init)
         garraDer = hwMap.get(Servo.class, "garraDer");
         garraIzq = hwMap.get(Servo.class, "garraIzq");
         garraDer.setPosition(MID_SERVO);
         garraIzq.setPosition(MID_SERVO);
+        telemetry.addLine("Servos configurados...");
+        telemetry.update();
 
         //Mensaje
+        telemetry.addData("Hardware", "Inicializado");
+        telemetry.update();
         /** Fin de la configuracion*/
-    }
 
+    }
 
 
     public void reversa(DcMotor... motores) {
@@ -99,20 +112,20 @@ public class BasicHardwareTemplate {
         }
     }
 
-    public void usarWithoutEncoder(DcMotor... motores){
-        for(DcMotor motor: motores){
+    public void usarWithoutEncoder(DcMotor... motores) {
+        for (DcMotor motor : motores) {
             motor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         }
     }
 
-    public void usarUsingEncoder(DcMotor... motores){
-        for(DcMotor motor: motores){
+    public void usarUsingEncoder(DcMotor... motores) {
+        for (DcMotor motor : motores) {
             motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
 
-    public void usarRunToPosition(DcMotor... motores){
-        for(DcMotor motor: motores){
+    public void usarRunToPosition(DcMotor... motores) {
+        for (DcMotor motor : motores) {
             motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         }
     }
