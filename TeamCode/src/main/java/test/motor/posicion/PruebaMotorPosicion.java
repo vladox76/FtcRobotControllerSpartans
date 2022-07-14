@@ -16,24 +16,20 @@ public class PruebaMotorPosicion extends LinearOpMode {
     public void runOpMode() {
 
         robot.init(hardwareMap , telemetry);
-        sleep(1000);
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
         // run until the end of the match (driver presses STOP)
-        while (opModeIsActive()) {
 
 
             telemetry.addData("Motor" , "20% -- 1300p");
-            moverseDistancia(0.2 , 1800);
+            moverseDistancia(0.2 , 1000);
             telemetry.update();
 
             pararMotores();
-            sleep(5000);
 
-        }
     }
 
     public void moverseDistancia(double potencia , int distance){

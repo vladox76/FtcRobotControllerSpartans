@@ -17,18 +17,12 @@ public class ChasisAutonomo extends LinearOpMode {
     public void runOpMode() {
         robot.init(hardwareMap , telemetry);
         Chasis chasis = new Chasis(robot.enfrenteDer , robot.enfrenteIzq , robot.atrasDer , robot.atrasIzq);
-        sleep(1000);
         telemetry.update();
 
         waitForStart();
 
-        while (opModeIsActive()) {
+        chasis.girarIzquierda(0.1 , 600);
 
-            chasis.moverseEnfrente( 2000 , 1);
-
-            chasis.moverseIzquierda(0.5 , 3000);
-
-        }
     }
 
 }

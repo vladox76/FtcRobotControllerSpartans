@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.domain;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 public class Chasis {
 
@@ -14,6 +15,15 @@ public class Chasis {
         this.enfrenteIzq = enfrenteIzq;
         this.atrasDer = atrasDer;
         this.atrasIzq = atrasIzq;
+    }
+
+    public double controlesVelocidad (Gamepad gamepad, double velocidad){
+        velocidad = (gamepad.a)? 0 : velocidad;
+        velocidad = (gamepad.x)? 0.3 : velocidad;
+        velocidad = (gamepad.y)? 0.6 : velocidad;
+        velocidad = (gamepad.b)? 1 : velocidad;
+
+        return velocidad;
     }
 
     public void moverseEnfrente(double potencia , int pulsos){
@@ -34,8 +44,7 @@ public class Chasis {
 
         moverseEnfrente(potencia);
 
-        while(enfrenteDer.isBusy() && enfrenteIzq.isBusy() && atrasDer.isBusy() &&
-                atrasIzq.isBusy()){
+        while(enfrenteDer.isBusy() && enfrenteIzq.isBusy() && atrasDer.isBusy() && atrasIzq.isBusy()){
 
         }
 
@@ -93,14 +102,14 @@ public class Chasis {
 
 
 
-    public void moverseIzquierda(double potencia){
+    public void girarDerecha(double potencia){
         enfrenteDer.setPower(potencia);
         enfrenteIzq.setPower(-potencia);
         atrasDer.setPower(-potencia);
         atrasIzq.setPower(potencia);
     }
 
-    public void moverseIzquierda(double potencia, int pulsos){
+    public void girarDerecha(double potencia, int pulsos){
         enfrenteDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         enfrenteIzq.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         atrasDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -133,11 +142,11 @@ public class Chasis {
 
 
 
-    public void moverseDerecha(double potencia){
-        moverseIzquierda(-potencia);
+    public void girarIzquierda(double potencia){
+        girarDerecha(-potencia);
     }
 
-    public void moverseDerecha(double potencia , int pulsos){
+    public void girarIzquierda(double potencia , int pulsos){
         enfrenteDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         enfrenteIzq.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         atrasDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -153,7 +162,7 @@ public class Chasis {
         atrasDer.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         atrasIzq.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        moverseEnfrente(potencia);
+        moverseDerecha(potencia);
 
         while(enfrenteDer.isBusy() && enfrenteIzq.isBusy() && atrasDer.isBusy() &&
                 atrasIzq.isBusy()){
@@ -281,14 +290,18 @@ public class Chasis {
         atrasIzq.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    public void girarIzquierda(double potencia){
+    public void moverseDerecha(double potencia){
         enfrenteDer.setPower(potencia);
         enfrenteIzq.setPower(-potencia);
         atrasDer.setPower(potencia);
         atrasIzq.setPower(-potencia);
     }
 
-    public void girarIzquierda(double potencia , int pulsos){
+    public void moverseIzquierda(double potencia){
+        moverseDerecha(-potencia);
+    }
+
+    public void moverseIzquierda(double potencia , int pulsos){
         enfrenteDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         enfrenteIzq.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         atrasDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -319,11 +332,8 @@ public class Chasis {
         atrasIzq.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    public void girarDerecha(double potencia){
-        girarIzquierda(-potencia);
-    }
 
-    public void girarDerecha(double potencia , int pulsos){
+    public void moverseDerecha(double potencia , int pulsos){
         enfrenteDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         enfrenteIzq.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         atrasDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);

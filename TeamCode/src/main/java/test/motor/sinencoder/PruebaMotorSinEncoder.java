@@ -24,17 +24,10 @@ public class PruebaMotorSinEncoder extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            robot.motor.setPower(0.3);
+            robot.motor.setPower(0.1);
             telemetry.addData("Motor" , "30%");
             telemetry.update();
             sleep(3000);
-
-            robot.motor.setPower(1);
-            telemetry.addData("Motor" , "100%");
-            telemetry.update();
-            sleep(3000);
-
-
 
         }
     }
