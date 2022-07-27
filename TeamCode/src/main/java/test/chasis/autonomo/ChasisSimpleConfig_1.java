@@ -32,8 +32,8 @@ public class ChasisSimpleConfig_1 {
         telemetry.addLine("Motores inicializados...");
 
 
-        reversa(atrasIzq , enfrenteDer);
-        derecho(atrasDer , enfrenteIzq);
+        reversa(atrasIzq , enfrenteIzq);
+        derecho(atrasDer , enfrenteDer);
 
         telemetry.addLine("Cambio de giro de motores hecho...");
         telemetry.update();

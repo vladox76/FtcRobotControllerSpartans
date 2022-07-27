@@ -97,7 +97,7 @@ public class ConceptVuforiaFieldNavigation extends LinearOpMode {
      * and paste it in to your code on the next line, between the double quotes.
      */
     private static final String VUFORIA_KEY =
-            " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+            "AWuhgG3/////AAABmcgyl9UPwEIilzVR0XUENTQ9VsKDVCfnHN8etuDAqXt9EbW1XgWG03d1uvacq4FHsq4HfxjXwZJ6ofH7ON9L7UWZZBC4Phl7+tPbYr7as9Lxp035PbXr4pIDD5z8ecP6dTgufu+mbAT28Yl0yZgP/pbYxuM1HNYZz/qlLKHQpgQ/NHjn3RjPell+NFNJmFPn5VVecLqg2jSu03zctVaFMgmuMrvoKI0DqJg9UlOkcOv/rTPAz81BwTPstLWBerd9Gs2/bvHzDcpsU8imqPHuwDvXMH+h4c8hh0GMcE9Lo4ejiCWsZVkJANeE8vHTMXwx59fnd7qdqIX6USiHv2T1mzHmRcqv/29AuWeFfUJ0ny9v";
 
     // Since ImageTarget trackables use mm to specifiy their dimensions, we must use mm for all the physical dimension.
     // We will define some constants and conversions here.  These are useful for the Freight Frenzy field.

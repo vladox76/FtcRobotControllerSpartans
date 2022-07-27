@@ -103,8 +103,8 @@ public class Chasis {
 
 
     public void girarDerecha(double potencia){
-        enfrenteDer.setPower(potencia);
-        enfrenteIzq.setPower(-potencia);
+        enfrenteDer.setPower(-potencia);
+        enfrenteIzq.setPower(potencia);
         atrasDer.setPower(-potencia);
         atrasIzq.setPower(potencia);
     }
@@ -115,8 +115,8 @@ public class Chasis {
         atrasDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         atrasIzq.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        enfrenteDer.setTargetPosition(pulsos);
-        enfrenteIzq.setTargetPosition(-pulsos);
+        enfrenteDer.setTargetPosition(-pulsos);
+        enfrenteIzq.setTargetPosition(pulsos);
         atrasDer.setTargetPosition(-pulsos);
         atrasIzq.setTargetPosition(pulsos);
 
@@ -152,8 +152,8 @@ public class Chasis {
         atrasDer.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         atrasIzq.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        enfrenteDer.setTargetPosition(-pulsos);
-        enfrenteIzq.setTargetPosition(pulsos);
+        enfrenteDer.setTargetPosition(pulsos);
+        enfrenteIzq.setTargetPosition(-pulsos);
         atrasDer.setTargetPosition(pulsos);
         atrasIzq.setTargetPosition(-pulsos);
 
@@ -291,8 +291,8 @@ public class Chasis {
     }
 
     public void moverseDerecha(double potencia){
-        enfrenteDer.setPower(potencia);
-        enfrenteIzq.setPower(-potencia);
+        enfrenteDer.setPower(-potencia);
+        enfrenteIzq.setPower(potencia);
         atrasDer.setPower(potencia);
         atrasIzq.setPower(-potencia);
     }
@@ -309,8 +309,8 @@ public class Chasis {
 
         enfrenteDer.setTargetPosition(pulsos);
         enfrenteIzq.setTargetPosition(-pulsos);
-        atrasDer.setTargetPosition(pulsos);
-        atrasIzq.setTargetPosition(-pulsos);
+        atrasDer.setTargetPosition(-pulsos);
+        atrasIzq.setTargetPosition(pulsos);
 
         enfrenteDer.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         enfrenteIzq.setMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -341,8 +341,8 @@ public class Chasis {
 
         enfrenteDer.setTargetPosition(-pulsos);
         enfrenteIzq.setTargetPosition(pulsos);
-        atrasDer.setTargetPosition(-pulsos);
-        atrasIzq.setTargetPosition(pulsos);
+        atrasDer.setTargetPosition(pulsos);
+        atrasIzq.setTargetPosition(-pulsos);
 
         enfrenteDer.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         enfrenteIzq.setMode(DcMotor.RunMode.RUN_TO_POSITION);

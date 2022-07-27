@@ -21,7 +21,10 @@ public class ChasisAutonomo extends LinearOpMode {
 
         waitForStart();
 
-        chasis.girarIzquierda(0.1 , 600);
+        chasis.girarIzquierda(0.2);
+        sleep(3000);
+
+        chasis.girarIzquierda(0.1 , 1000);
 
     }
 
