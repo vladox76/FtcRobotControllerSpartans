@@ -22,9 +22,13 @@ public class PruebaServo extends LinearOpMode {
 
         while (opModeIsActive()) {
             robot.servo.setPosition(robot.MAX_SERVO);
+            telemetry.addData("Posicion:" , "Maximo");
+            telemetry.update();
             sleep(3000);
 
             robot.servo.setPosition(robot.MIN_SERVO);
+            telemetry.addData("Posicion:" , "Mínimo");
+            telemetry.update();
             sleep(3000);
         }
     }

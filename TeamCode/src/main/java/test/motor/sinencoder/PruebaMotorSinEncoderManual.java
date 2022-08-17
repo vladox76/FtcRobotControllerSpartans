@@ -1,12 +1,12 @@
 package test.motor.sinencoder;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@Autonomous(name="PruebaMotorSinEncoder", group="Pushbot")
+@TeleOp(name="PruebaMotorSinEncoderManual", group="Pushbot")
 //@Disabled
-public class PruebaMotorSinEncoder extends LinearOpMode {
+public class PruebaMotorSinEncoderManual extends LinearOpMode {
     PruebaMotorSinEncoderConfig robot = new PruebaMotorSinEncoderConfig();
 
     @Override
@@ -24,9 +24,22 @@ public class PruebaMotorSinEncoder extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            robot.motor.setPower(1);
-            telemetry.addData("Motor" , "100%");
+            if(gamepad1.dpad_up) {
+                robot.motor.setPower(1);
+                telemetry.addData("Pa arriba pai" , 20);
+            }
+
+            else if (gamepad1.dpad_down){
+                robot.motor.setPower(-1);
+                telemetry.addData("Pa abajo pai" , 20);
+            }
+
+            else{
+                robot.motor.setPower(0);
+            }
+
             telemetry.update();
+
 
         }
     }

@@ -17,7 +17,7 @@ public class Chasis {
         this.atrasIzq = atrasIzq;
     }
 
-    public double controlesVelocidad (Gamepad gamepad, double velocidad){
+    public static double controlesVelocidad (Gamepad gamepad, double velocidad){
         velocidad = (gamepad.a)? 0 : velocidad;
         velocidad = (gamepad.x)? 0.3 : velocidad;
         velocidad = (gamepad.y)? 0.6 : velocidad;

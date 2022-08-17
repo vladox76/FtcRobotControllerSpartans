@@ -9,12 +9,14 @@ import org.firstinspires.ftc.teamcode.domain.Chasis;
 import java.util.*;
 
 import test.chasis.autonomo.ChasisSimpleConfig_1;
+import test.teleopcompleto.TeleOpCompleto;
+import test.teleopcompleto.TeleOpCompletoConfig;
 
 @TeleOp(name="ChasisTeleop", group="Pushbot")
 
 public class ChasisTeleop extends LinearOpMode {
 
-    ChasisSimpleConfig_1 robot = new ChasisSimpleConfig_1();
+    ChasisSimpleConfig_2 robot = new ChasisSimpleConfig_2();
 
     @Override
     public void runOpMode() {
@@ -50,6 +52,8 @@ public class ChasisTeleop extends LinearOpMode {
             } else {
                 chasis.parar();
             }
+
+
 
 
 

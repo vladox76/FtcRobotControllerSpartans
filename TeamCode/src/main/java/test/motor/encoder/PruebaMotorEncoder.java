@@ -3,10 +3,13 @@ package test.motor.encoder;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.teamcode.domain.Chasis;
 
 import test.motor.sinencoder.PruebaMotorSinEncoderConfig;
 
-@Autonomous(name="PruebaMotorEncoder", group="Pushbot")
+@TeleOp(name="PruebaMotorEncoder", group="Pushbot")
 //@Disabled
 public class PruebaMotorEncoder extends LinearOpMode {
     PruebaMotorSinEncoderConfig robot = new PruebaMotorSinEncoderConfig();
@@ -20,14 +23,23 @@ public class PruebaMotorEncoder extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
+        double velocidad = 0;
 
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-            robot.motor.setPower(0.1);
-            telemetry.addData("Motor" , "10%");
+             velocidad = Chasis.controlesVelocidad(gamepad1 , velocidad);
+
+            if(gamepad1.dpad_up)
+                robot.motor.setPower(velocidad);
+            else if(gamepad1.dpad_down)
+                robot.motor.setPower(-velocidad);
+            else{
+                robot.motor.setPower(0);
+            }
+
+            telemetry.addData("Velocidad" , velocidad*100 + "%");
             telemetry.update();
-            sleep(3000);
 
         }
     }
